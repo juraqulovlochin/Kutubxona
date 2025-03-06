@@ -1,0 +1,13 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    text-item: center;
+}
+a {
+    text-decoration: none;
+
+}
+a:hover {
+    color: red;
+}
