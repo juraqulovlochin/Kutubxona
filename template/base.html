@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}"><h1 id="title">Books</h1><hr></a>
+    </header>
+    <footer>
+        <a href="{% url 'cret' %}" id="qushish"><h3>Qo'shish</h3></a>
+        <a href="{% url 'search' %}" id="search"><h3>🔍Qidiruv</h3></a>
+    </footer>
+
+    <div id="ummum">
+        <div id="oqqora">
+            <button id="oq">☀</button>
+            <button id="qora">🌙</button>
+            <button id="katta">+</button>
+            <button id="kichik">-</button>
+        </div>
+    </div>
+
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <script>
+        let size = 14;
+        let body = document.body;
+
+        document.getElementById('katta').onclick = function() {
+        if(size<34){
+            size += 2;
+            body.style.fontSize = size + "px";
+            }
+        }
+        document.getElementById('kichik').onclick = function() {
+        if(size>8){
+            size -= 2;
+            body.style.fontSize = size + "px";
+            }
+        }
+       document.getElementById('oq').onclick = function() {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+
+       document.getElementById('qora').onclick = function() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+    </script>
+</body>
+</html>

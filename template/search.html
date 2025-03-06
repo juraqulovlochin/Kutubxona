@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/searc.css' %}">
+<form method="GET">
+    <input type="text" name="q" placeholder="Kitob nomini kiriting..." value="{{ request.GET.q }}">
+    <button type="submit">Qidirish</button>
+</form>
+
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>Nomi:</strong> {{ book.nomi }} <br>
+            <strong>Muallifi:</strong> {{ book.muallifi }} <br>
+            <strong>ISBN:</strong> {{ book.isbn }} <br>
+            <strong>Holati:</strong> {{ book.holati }} <br>
+            <strong>Oluvchi:</strong> {{ book.oluvchi }} <br>
+            <strong>Olingan sana:</strong> {{ book.olingan_sanasi }} <br>
+            <strong>Beriladigan sana:</strong> {{ book.beriladigan_sanasi }} <br>
+            <a href="{% url 'detal' book.pk %}">Batafsil</a>
+        </li>
+        <hr>
+    {% empty %}
+        <li>Hech narsa topilmadi</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

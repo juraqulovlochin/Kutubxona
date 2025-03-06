@@ -1,0 +1,23 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% block content %}
+   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+   <form method="post">{% csrf_token %}
+        <div>
+        {% for book in books %}
+
+            <a href="{% url 'detal' book.pk %}">
+              <h4>Nomi..................:{{ book.nomi }}</h4></a>
+            <p><h4>Mualif................:{{ book.muallifi }}</h4></p>
+            <p><h4>ISBN..................:{{ book.isbn }}</h4></p>
+            <p><h4>Holati.................:{{ book.holati }}</h4></p>
+            <p><h4>Oluvchi..............:{{ book.oluvchi }}</h4></p>
+            <p><h4>Olingan vaqti....:{{ book.olingan_sanasi }}</h4></p>
+            <p><h4>Topshirish vaqti:{{ book.beriladigan_sanasi }}</h4></p>
+            <hr>
+        {% endfor %}
+    </div>
+
+   </form>
+
+{% endblock content %}
